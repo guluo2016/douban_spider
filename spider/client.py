@@ -1,6 +1,6 @@
-from douban import Douban
-from wordcut import WordCut
-from wordshow import WordShow
+from spider.douban import Douban
+from spider.wordcut import WordCut
+from spider.wordshow import WordShow
 
 def test_spider():
     douban = Douban()
@@ -9,11 +9,11 @@ def test_spider():
     if url == 1:
         print('检索失败，程序退出')
         exit(1)
-    douban.spider_all_comments(url, '活着.txt')
+    douban.spider_all_comments(url, '../result/活着.txt')
 
 def test_words_show():
     wordcut = WordCut()
-    word_list = wordcut.word_cut('活着.txt')
+    word_list = wordcut.word_cut('../result/活着.txt')
 
     word_show = WordShow()
     #设置停词
@@ -25,9 +25,9 @@ def test_words_show():
 
 def client():
     #测试爬虫
-    #test_spider()
+    test_spider()
     #测试分词及展示
-    test_words_show()
+    #test_words_show()
 
 
 
